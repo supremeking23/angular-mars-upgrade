@@ -1,0 +1,60 @@
+
+section {
+    -moz-box-shadow: 1px 0px 16px 11px rgba(212,225,250,0.66);
+    -webkit-box-shadow: 1px 0px 16px 11px rgba(212,225,250,0.66);
+    background-color: #fff;
+    box-shadow: 1px 0px 16px 11px rgba(212,225,250,0.66);
+    display: flex;
+    margin: 25px auto;
+    width: 1200px;
+    #company_logo {
+        margin: 47px;
+        width: 450px;
+    }
+    #login{
+        padding: 47px 52px;
+        border-left: 1px solid #D4E1FA;
+
+        h2 {
+            margin-bottom: 52px;
+        }
+
+        label {
+            width: 100%;
+            .form-control{
+                background-color: #F5F9FF;
+                border-radius: 5px;
+                border: 1px solid #D4E1FA;
+                color: #25324B;
+                font: 16px/19px Inter-Regular, tahoma, verdana, arial, sans-serif; 
+                height: 51px;
+                padding: 19px 16px;
+                width: 385px;
+                margin-bottom: 13px;
+                &:focus{
+                    box-shadow: none;
+                }
+                &:focus, &:not(:placeholder-shown){
+                    // &{
+                    //     transform: translateY(7px);
+                    // }
+                    & + span{
+                        font: 12px/14px Inter-Regular, tahoma, verdana, arial, sans-serif; 
+                        transform: translateY(-58px);
+                        transition: all 0.3s ease;
+                    }
+                }
+            }
+        
+            span{
+                color: #6E7B92;
+                font: 16px/19px Inter-Regular, tahoma, verdana, arial, sans-serif; 
+                margin-left: 16px;
+                position: absolute;
+                transform: translateY(-48px);
+                transition: all .1s ease-in-out;
+            }
+        }
+    }
+}
+

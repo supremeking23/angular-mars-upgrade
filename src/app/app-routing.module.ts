@@ -8,7 +8,8 @@ import { PrototypeLinksComponent } from './prototype-links/prototype-links.compo
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'prototype-links', component: PrototypeLinksComponent}
+  {path: 'prototype-links', component: PrototypeLinksComponent},
+  {path: '', redirectTo: "/prototype-links", pathMatch:"full"}
 ];
 
 @NgModule({

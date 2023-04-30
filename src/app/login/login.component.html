@@ -1,1 +1,33 @@
 <app-navigation></app-navigation>
+
+<section>
+    <img src="/assets/images/company2023.png" alt="" id="company_logo">
+    <form id="login" method="POST" action="/server" (ngSubmit)="submitLogin($event)">
+        <h1>MARS - Sign on</h1>
+        <h2>Maintenance And Registration System</h2>
+    
+        <alert type="danger">
+            <strong>Oh snap!</strong> Change a few things up and try submitting again.
+        </alert>
+        
+        <div class="form_input">
+            <label for="user_id">
+                <input type="text" value="" name="user_id" id="user_id" placeholder=" " class="form-control" #userIdInput
+                (keyup)="checkFormFieldOnKeyUp('user_id', userIdInput.value)" [(ngModel)]="user_id"
+                >
+                <span>User Id</span>
+            </label>
+        </div> 
+
+
+        <div class="form_input">
+            <label for="password">
+                <input type="password" value="" name="password" id="password" placeholder=" " class="form-control" #passwordInput
+                (keyup)="checkFormFieldOnKeyUp('password', passwordInput.value)" [(ngModel)]="password"
+                >
+                <span>Password</span>
+            </label>
+        </div>
+        <button type="submit" [disabled]="true" class="btn btn-primary login_btn" #loginBtn>Logon</button>
+    </form>
+</section>
