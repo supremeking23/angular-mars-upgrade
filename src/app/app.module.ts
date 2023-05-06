@@ -9,13 +9,15 @@ import { FormsModule } from '@angular/forms';
 
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { ModalModule, BsModalRef  } from 'ngx-bootstrap/modal';
 
 import { LoginComponent } from './login/login.component';
 import { PrototypeLinksComponent } from './prototype-links/prototype-links.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
+import { SearchCustomerModalComponent } from './search-customer-modal/search-customer-modal.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { CustomerDashboardComponent } from './customer-dashboard/customer-dashbo
     LoginComponent,
     PrototypeLinksComponent,
     NavigationComponent,
-    CustomerDashboardComponent
+    CustomerDashboardComponent,
+    SearchCustomerModalComponent
   ],
   imports: [
     BrowserModule,
@@ -32,9 +35,10 @@ import { CustomerDashboardComponent } from './customer-dashboard/customer-dashbo
     TooltipModule,
     BsDatepickerModule,
     FormsModule,
-    AlertModule
+    AlertModule,
+    ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [BsModalRef],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,15 +1,98 @@
 <app-navigation></app-navigation>
 
-<aside>
-    <ul>
-        <li><a href="" class="active">Customers</a></li>
-        <li><a href="" >Admin</a></li>
-        <li><a href="">Reports</a></li>
-        <li><a href="">Mail</a></li>
-        <li><a href="">Access Code Printing</a></li>
-    </ul>
-</aside>
+<div class="main_display">
+    <!-- need separate component for sidebar -->
+    <aside>
+        <ul>
+            <li><a href="" class="active">Customers</a></li>
+            <li><a href="" >Admin</a></li>
+            <li><a href="">Reports</a></li>
+            <li><a href="">Mail</a></li>
+            <li><a href="">Access Code Printing</a></li>
+        </ul>
+    </aside>
 
-<main>
+    <main>
+        <div class="content_header">
+            <h1>Customers</h1>
+            <div class="button_group">
+                <button type="button" (click)="openSearchCustomerModal(template)">Search Customer</button>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <th>User Name</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Mobile Phone</th>
+                <th>BankFast Customer No. (CLI)</th>
+                <th>Host Customer No.</th>
+                <th>Tax Id</th>
+                <th>IB Status</th>
+                <th>Approval Status</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ivanpogi</td>
+                    <td>Ivan Christian Jay Funcion</td>
+                    <td>ivan@email.com</td>
+                    <td>911</td>
+                    <td>00011111</td>
+                    <td>00011111</td>
+                    <td>00011111</td>
+                    <td>Active</td>
+                    <td>Active</td>
+                </tr>
+                <tr>
+                    <td>mavis</td>
+                    <td>Mavis Vermillion</td>
+                    <td>ivan@email.com</td>
+                    <td>911</td>
+                    <td>00011111</td>
+                    <td>00011111</td>
+                    <td>00011111</td>
+                    <td>Active</td>
+                    <td>Active</td>
+                </tr>
+                <tr>
+                    <td>mavis</td>
+                    <td>Lugh Tuatade</td>
+                    <td>ivan@email.com</td>
+                    <td>911</td>
+                    <td>00011111</td>
+                    <td>00011111</td>
+                    <td>00011111</td>
+                    <td>Active</td>
+                    <td>Active</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <alert type="info">
+            <ul>
+                <li>For search with multiple criteria, if the User Name is specified along with other search criteria then all other are ignored</li>
+                <li>If User Name is not entered, and Customer Number (CIF) is specified then all other search criteria are ignored</li>
+                <li>Uf Entity Number is entered, it performs combined search with first, middle, last name, names are optional.</li>
+                <li>If User Name or Customer Number (CIF) is not entered, and Identiy Document Type and Identity Document code are selected/entered, then all other search criteria is ignored</li>
+                <li>If Tax ID (TIN) is specified without User Name or Customer Number (CIF) or Identity Document Type and Identity Document Code then all other search criteria are ignored</li>
+            </ul>
+          </alert>
+    </main>
+</div>
 
-</main>
+<ng-template #template>
+    <div class="modal-header">
+        <h2 class="modal-title pull-left">Retail Customer/IB User Search</h2>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+    <form class="modal-body">
+        <div class="form_input">
+            <label for="user_name">User Name</label>
+            <input type="text" class="form-control">
+        </div>  
+    </form>
+</ng-template>
+
+<app-search-customer-modal></app-search-customer-modal>
