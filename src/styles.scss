@@ -35,3 +35,38 @@ img {
     opacity: .5;
     
 }
+
+aside {
+    background-color: #000080;
+    height: 100vh;
+    width: 208px;
+    padding: 30px 20px;
+    ul {
+        list-style: none;
+        padding: 0;
+        li{
+            margin-bottom: 5px;
+            a {
+                color: #fff;
+                display: inline-block;
+                font: 14px/17px Inter-Regular, tahoma, verdana, arial, sans-serif; 
+                height: 40px;
+                text-decoration: none;
+                width: 169px;
+                padding: 11px 10px;
+                &:hover {
+                    color: #fff;
+                }
+                &.active {
+                    background-color: #2D4063;
+                    color: #00C3A1;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}
+
+main {
+
+}
