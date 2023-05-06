@@ -24,3 +24,14 @@ h1, h2, h3, h4, h5, h6 {
 .hidden {
     display: none !important;
 }
+
+img {
+    object-fit: contain;
+}
+
+.disable_btn{
+    cursor: not-allowed !important;
+    // pointer-events: none;
+    opacity: .5;
+    
+}

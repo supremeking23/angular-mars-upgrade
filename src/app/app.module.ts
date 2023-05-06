@@ -15,13 +15,15 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { LoginComponent } from './login/login.component';
 import { PrototypeLinksComponent } from './prototype-links/prototype-links.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PrototypeLinksComponent,
-    NavigationComponent
+    NavigationComponent,
+    CustomerDashboardComponent
   ],
   imports: [
     BrowserModule,

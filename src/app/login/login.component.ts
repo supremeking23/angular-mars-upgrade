@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from './../user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,15 +13,19 @@ export class LoginComponent {
   // @Input() user?: User;
 
 
+  /* sample data for login process */
   user: User = {
     user_id: "default",
     password: "boomer"
   };
 
+  /* properties that will house the data from the FORM  */
   user_id: string = "";
   password: string = "";
 
-  constructor() { 
+  invalidCredential?: boolean;
+
+  constructor(private router: Router) { 
 
   }
 
@@ -38,18 +43,34 @@ export class LoginComponent {
     }
 
     if(this.user_id !== "" && this.password !==""){
-      login_button.disabled = false;
+      // login_button.disabled = false;
+      login_button.classList.remove("disable_btn");
     }else{
-      login_button.disabled = true;
+      // login_button.disabled = true;
+      login_button.classList.add("disable_btn");
     }
-    console.log(login_button.disabled)
-
-
+   
   }
 
-  submitLogin(event: Event): void {
-    console.log("prevent default");
+  submitLogin(event: Event): void {    
+    let user_id = this.user_id;
+    let password = this.password;
+    let sample_user = this.user;
+    // let error_message = document.querySelector(".error_message.login") as HTMLButtonElement;
 
+    /**
+     * TODO: change code after when you have 80% of the UI
+     * TODO: checking of user if exist from the database
+     **/
+    if(user_id !== sample_user.user_id || password !== sample_user.password ){
+      // error_message.classList.remove(".hidden");
+      this.invalidCredential = true;
+    }
+    else{
+      this.invalidCredential = false;
+      this.router.navigate(["/customer-dashboard"]);
+    }
+    
     console.log(`user_id: ${this.user_id}`);
     console.log(`password: ${this.password}`);
     event.preventDefault();
