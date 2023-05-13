@@ -29,9 +29,114 @@ img {
     object-fit: contain;
 }
 
-.disable_btn{
+button {
+    background-color: transparent;
+    border-radius: 5px;
+    border: none;
+    font: 14px/17px Inter-Regular, tahoma,  verdana, arial, sans-serif; 
+    height: 41px;
+    padding: 0 20px;
+    transition: opacity 0.21s ease-in-out;
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+
+.btn_outline {
+    border: 2px solid #eee;
+    color: #25324B;
+}
+.primary_btn {
+    background-color: #0FAF93;
+    color: #fff;  
+   
+}
+
+.disable_btn {
     cursor: not-allowed !important;
     // pointer-events: none;
     opacity: .5;
     
 }
+
+.main_display{
+    display: flex;
+    aside {
+        background-color: #000080;
+        height: 100vh;
+        width: 208px;
+        padding: 30px 20px;
+        ul {
+            list-style: none;
+            padding: 0;
+            li{
+                margin-bottom: 5px;
+                a {
+                    color: #fff;
+                    display: inline-block;
+                    font: 14px/17px Inter-Regular, tahoma, verdana, arial, sans-serif; 
+                    height: 40px;
+                    text-decoration: none;
+                    width: 169px;
+                    padding: 11px 10px;
+                    &:hover {
+                        color: #fff;
+                    }
+                    &.active {
+                        background-color: #2D4063;
+                        color: #00C3A1;
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }
+    }
+    
+    main {
+        -moz-box-shadow: 1px 0px 16px 11px rgba(212,225,250,0.66);
+        -webkit-box-shadow: 1px 0px 16px 11px rgba(212,225,250,0.66);
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 1px 0px 16px 11px rgba(212,225,250,0.66);
+        margin: 30px;
+        padding: 28px 40px;
+
+        .content_header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            h1 {
+                margin-bottom: 18px;
+            }
+        }
+
+        .table{
+           border: 1px solid #D5E0FA;
+           border-radius: 5px;
+            thead{
+                background-color: #F5F9FF;
+               ;
+                th{
+                    font: bold 14px/17px  tahoma, verdana, arial;
+                    padding: 20px;
+                    // background-color: red;
+                }
+            }
+            tbody{
+                tr {
+                    transition: border-bottom 0.21s ease-in-out, background-color 0.21s ease-in-out,;
+                    td{
+                        padding: 18px 20px;
+                        text-align: left;
+                    }
+                    &:hover {
+                        border-bottom: 1px solid #cfdefc;
+                        background: #CFF4FC;
+                    }
+                }
+            }
+        }
+    }
+}
+
