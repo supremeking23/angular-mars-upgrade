@@ -16,7 +16,8 @@
         <div class="content_header">
             <h1>Customers</h1>
             <div class="button_group">
-                <button type="button" (click)="openSearchCustomerModal(template)">Search Customer</button>
+                <!-- <button type="button" (click)="openModal(template)">Search Customer</button> -->
+                <button type="button" (click)="openModal(template)" class="primary_btn">Search Customer</button>
             </div>
         </div>
         <table class="table">
@@ -80,6 +81,10 @@
     </main>
 </div>
 
+<!-- 
+
+    TODO: isolate this modal. Must have it's own component
+ -->
 <ng-template #template>
     <div class="modal-header">
         <h2 class="modal-title pull-left">Retail Customer/IB User Search</h2>
@@ -87,11 +92,67 @@
         <span aria-hidden="true" class="visually-hidden">&times;</span>
         </button>
     </div>
-    <form class="modal-body">
+    <form #searchCustomer="ngForm" class="modal-body customer_search_modal_form" method="POST" action="/server" (ngSubmit)="submitSearchCustomer(searchCustomer, $event)">
+        <div class="form_input customer_name">
+            <label for="customer_name">Customer name:</label>
+            <input type="text" class="form-control" placeholder="First name" id="first_name" name="first_name" ngModel >
+            <input type="text" class="form-control" placeholder="Middle name" id="middle_name" name="middle_name" ngModel>
+            <input type="text" class="form-control" placeholder="Last name"
+            id="last_name" name="last_name" ngModel>
+        </div>
         <div class="form_input">
-            <label for="user_name">User Name</label>
-            <input type="text" class="form-control">
+            <label for="customer_name">Email:</label>
+            <input type="text" class="form-control" placeholder=""
+            id="email" name="email" ngModel>
         </div>  
+        <div class="form_input">
+            <label for="customer_name">User Name:</label>
+            <input type="text" class="form-control" placeholder=""
+            id="user_name" name="user_name" ngModel>
+        </div>  
+        <div class="form_input">
+            <label for="customer_name">Business No.:</label>
+            <input type="text" class="form-control" placeholder=""
+            id="business_number" name="business_number" ngModel>
+        </div>  
+        <div class="form_input">
+            <label for="customer_name">Tax ID - TIN:</label>
+            <input type="text" class="form-control" placeholder=""
+            id="tax_id" name="tax_id" ngModel>
+        </div>  
+        <div class="form_input">
+            <label for="customer_name">BankFast Customer No. (CLI):</label>
+            <input type="text" class="form-control" placeholder=""
+            id="bankfast_customer_number" name="bankfast_customer_number" ngModel>
+        </div>
+        <div class="form_input">
+            <label for="identity_document_type">Identity Document Type:</label>
+            <select class="form-control" id="identity_document_type" name="identity_document_type" [(ngModel)]="selectedOptionForIdentityDocumentType">
+                <option disabled>--Please make a selection--</option>
+                <option value="option1">option1</option>
+                <option value="option2">option2</option>
+                <option value="option3">option3</option>
+                <option value="option4">option4</option>
+              </select>
+        </div>
+        <div class="form_input">
+            <label for="identity_document_code">Identity Document Code:</label>
+            <input type="text" class="form-control" placeholder=""
+            id="identity_document_code" name="identity_document_code" ngModel>
+        </div>
+        <div class="form_input">
+            <label for="approval_status">Approval Status:</label>
+            <select class="form-control" id="approval_status" name="approval_status" [(ngModel)]="selectedOptionForApprovalStatus">
+                <option value="Live Data" >Live Data</option>
+                <option value="option2">option2</option>
+                <option value="option3">option3</option>
+                <option value="option4">option4</option>
+              </select>
+        </div>
+        <div class="button_group">
+            <button type="button" (click)="modalRef?.hide()" class="btn_outline">Cancel</button>
+            <button type="submit" class="primary_btn">Search</button>
+        </div>
     </form>
 </ng-template>
 

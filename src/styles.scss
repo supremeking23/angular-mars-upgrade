@@ -29,7 +29,31 @@ img {
     object-fit: contain;
 }
 
-.disable_btn{
+button {
+    background-color: transparent;
+    border-radius: 5px;
+    border: none;
+    font: 14px/17px Inter-Regular, tahoma,  verdana, arial, sans-serif; 
+    height: 41px;
+    padding: 0 20px;
+    transition: opacity 0.21s ease-in-out;
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+
+.btn_outline {
+    border: 2px solid #eee;
+    color: #25324B;
+}
+.primary_btn {
+    background-color: #0FAF93;
+    color: #fff;  
+   
+}
+
+.disable_btn {
     cursor: not-allowed !important;
     // pointer-events: none;
     opacity: .5;
