@@ -4,11 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { FormsModule } from '@angular/forms';
 
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { ModalModule, BsModalRef  } from 'ngx-bootstrap/modal';
 
@@ -17,6 +18,7 @@ import { PrototypeLinksComponent } from './prototype-links/prototype-links.compo
 import { NavigationComponent } from './navigation/navigation.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 import { SearchCustomerModalComponent } from './search-customer-modal/search-customer-modal.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
@@ -26,17 +28,20 @@ import { SearchCustomerModalComponent } from './search-customer-modal/search-cus
     PrototypeLinksComponent,
     NavigationComponent,
     CustomerDashboardComponent,
-    SearchCustomerModalComponent
+    SearchCustomerModalComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    TooltipModule,
+    TooltipModule.forRoot(),
     BsDatepickerModule,
     FormsModule,
     AlertModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    BsDatepickerModule.forRoot(),
   ],
   providers: [BsModalRef],
   bootstrap: [AppComponent]

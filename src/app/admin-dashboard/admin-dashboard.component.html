@@ -1,0 +1,222 @@
+<app-navigation></app-navigation>
+
+<div class="main_display">
+    <!-- need separate component for sidebar -->
+    <aside>
+        <ul>
+            <li><a href="" >Customers</a></li>
+            <li><a href="" class="active">Admin</a></li>
+            <li><a href="">Reports</a></li>
+            <li><a href="">Mail</a></li>
+            <li><a href="">Access Code Printing</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        <div class="content_header">
+            <h1>Admins</h1>
+            <div class="button_group">
+                <button type="button" (click)="searchModal(searchUser)" class="btn_outline_primary">Search User</button>
+                <button type="button" (click)="addModal(addUser)" class="primary_btn">Add User</button>
+                <div class="btn-group" dropdown>
+                    <button id="export_button" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                        aria-controls="export_button">Export <span class="caret"></span>
+                    </button>
+                    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                        role="menu" aria-labelledby="export_button">
+                        <li role="menuitem"><a class="dropdown-item" href="#">CSV</a></li>
+                        <li role="menuitem"><a class="dropdown-item" href="#">PDF</a></li>
+                        <li role="menuitem"><a class="dropdown-item" href="#">Excel</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <th>User Role</th>
+                <th>User Id</th>
+                <th>Full Name</th>
+                <th>Status</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ivanpogi</td>
+                    <td>Ivan Christian Jay Funcion</td>
+                    <td>ivan@email.com</td>
+                    <td>911</td>
+                    <td>
+                        <button type="button">action 1</button>
+                        <button type="button">action 1</button>
+                        <button type="button">action 1</button>
+                        <button type="button">action 1</button>
+                        <button type="button">action 1</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>mavis</td>
+                    <td>Mavis Vermillion</td>
+                    <td>ivan@email.com</td>
+                    <td>911</td>
+                    <td> 
+                        <button type="button">action 1</button>
+                        <button type="button">action 1</button>
+                        <button type="button">action 1</button>
+                        <button type="button">action 1</button>
+                        <button type="button">action 1</button></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </main>
+</div>
+
+
+<ng-template #searchUser>
+    <div class="modal-header">
+        <h2 class="modal-title pull-left">Search User</h2>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+    <form #searchCustomer="ngForm" class="modal-body admin_modal" method="POST" action="/server" (ngSubmit)="submitSearchCustomer(searchCustomer, $event)">
+        <div class="form_input">
+            <label for="method_of_search">Method of Search:</label>
+            <select class="form-control" id="method_of_search" name="method_of_search" >
+                <option value="User Id" >User Id</option>
+                <option value="option2">option2</option>
+                <option value="option3">option3</option>
+                <option value="option4">option4</option>
+              </select>
+        </div>
+        <div class="form_input">
+            <label for="search_for">Search for:</label>
+            <input type="text" class="form-control" placeholder=""
+            id="search_for" name="search_for" ngModel>
+        </div>
+        <div class="form_input">
+            <label for="user_role">Show only those with User Role:</label>
+            <select class="form-control" id="user_role" name="user_role" >
+                <option value="Any" >Any</option>
+                <option value="option2">option2</option>
+                <option value="option3">option3</option>
+                <option value="option4">option4</option>
+              </select>
+        </div>
+        <div class="form_input">
+            <label for="user_role">Show only those with User Role:</label>
+            <select class="form-control" id="user_role" name="user_role" >
+                <option value="Any" >Any</option>
+                <option value="option2">option2</option>
+                <option value="option3">option3</option>
+                <option value="option4">option4</option>
+              </select>
+        </div>
+        
+        <div class="button_group">
+            <button type="button" (click)="modalRef?.hide()" class="btn_outline">Cancel</button>
+            <button type="submit" class="primary_btn">Search</button>
+        </div>
+    </form>
+</ng-template>
+
+<ng-template #addUser>
+    <div class="modal-header">
+        <h2 class="modal-title pull-left">Add User</h2>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+    <form #searchCustomer="ngForm" class="modal-body admin_modal" method="POST" action="/server" (ngSubmit)="submitSearchCustomer(searchCustomer, $event)">
+        <div class="form_input">
+            <label for="user_id">User Id: <span>*</span></label>
+            <input type="text" class="form-control" placeholder=""
+            id="user_id" name="user_id" ngModel>
+            <p class="error_message hidden">This field is required</p>
+        </div>
+        <div class="form_input">
+            <label for="full_name">Full Name: <span>*</span></label>
+            <input type="text" class="form-control" placeholder=""
+            id="full_name" name="full_name" ngModel>
+            <p class="error_message hidden">This field is required</p>
+        </div>
+        <div class="form_input">
+            <label for="position_title">Position Title</label>
+            <input type="text" class="form-control" placeholder=""
+            id="position_title" name="position_title" ngModel>
+        </div>
+        <div class="form_input">
+            <label for="user_role">Department: <span>*</span></label>
+            <select class="form-control" id="department" name="department" >
+                <option value="Any" >--Please select--</option>
+                <option value="option2">option2</option>
+                <option value="option3">option3</option>
+                <option value="option4">option4</option>
+              </select>
+        </div>
+        <div class="form_input">
+            <label for="work_phone">Work Phone: <span>*</span></label>
+            <input type="text" class="form-control" placeholder=""
+            id="work_phone" name="work_phone" ngModel>
+            <p class="error_message hidden">This field is required</p>
+        </div>
+        <div class="form_input employee_type">
+            <label for="">Employee Type</label>
+            <label class="radio_body">
+                <span class="radio_text">Permanent</span>
+                <input type="radio" name="employee_type"  value="Permanent" checked="checked" [(ngModel)]="selectedOption" (change)="onOptionChange('Permanent')">
+                <span class="checkmark"></span>
+            </label>
+            <label class="radio_body">
+                <span class="radio_text">Contractor</span>
+                <input type="radio" name="employee_type" value="Contractor" [(ngModel)]="selectedOption" (change)="onOptionChange('Contractor')">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+
+        <div class="form_input">
+            <label for="start_date">Start Date</label>  
+            <input type="text"
+                placeholder="Datepicker"
+                class="form-control"
+                bsDatepicker
+                [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }"
+                ngModel
+                name="start_date"
+            >
+        </div>
+
+        <div class="form_input">
+            <label for="start_date">End Date</label>  
+            <input type="text"
+                placeholder="Datepicker"
+                class="form-control"
+                bsDatepicker
+                [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }"
+                ngModel
+                name="end_date"
+            >
+        </div>
+        <div class="form_input">
+            <label for="user_role">User Role: <span>*</span></label>
+            <select class="form-control" id="user_role" name="user_role" >
+                <option value="option2">MARS Admin</option>
+                <option value="option3">MARS User</option>
+              </select>
+        </div>
+
+        <div class="form_input">
+            <label for="branch">Branch</label>
+            <select class="form-control" id="branch" name="branch" >
+                <option value="">--Please make a selection--</option>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 1</option>
+              </select>
+        </div>
+        
+        <div class="button_group">
+            <button type="button" (click)="modalRef?.hide()" class="btn_outline">Cancel</button>
+            <button type="submit" class="primary_btn">Add</button>
+        </div>
+    </form>
+</ng-template>
