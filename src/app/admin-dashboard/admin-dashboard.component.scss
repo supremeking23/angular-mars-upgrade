@@ -1,0 +1,22 @@
+.admin_modal {
+    label {
+        color: #25324B;
+        display: block;
+        font: 16px/19px Inter-Regular, tahoma,  verdana, arial, sans-serif; 
+        margin-bottom: 7px;
+    }
+
+    .form_input {
+        margin-bottom: 10px;
+        .form-control {
+            &:focus {
+                border-color: #64D9BD;
+                box-shadow: 0 0 0 0.25rem rgba(100,217,189, 0.25);
+            }
+        }
+    }
+.button_group {
+        display: flex;
+        justify-content: space-between;
+    }
+}
