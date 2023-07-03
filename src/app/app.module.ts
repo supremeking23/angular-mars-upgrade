@@ -19,7 +19,11 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 import { SearchCustomerModalComponent } from './search-customer-modal/search-customer-modal.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
+import { ToastrModule } from 'ngx-toastr';
+
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -29,7 +33,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     NavigationComponent,
     CustomerDashboardComponent,
     SearchCustomerModalComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +47,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     ModalModule.forRoot(),
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
+    ToastrModule.forRoot(), // ToastrModule added
+    ReactiveFormsModule 
   ],
   providers: [BsModalRef],
   bootstrap: [AppComponent]
